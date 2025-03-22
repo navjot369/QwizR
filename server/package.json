@@ -1,0 +1,25 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Backend Code",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/navjot369/QwizR.git"
+  },
+  "author": "Navjot Singh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/navjot369/QwizR/issues"
+  },
+  "homepage": "https://github.com/navjot369/QwizR#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
