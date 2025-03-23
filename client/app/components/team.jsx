@@ -10,12 +10,12 @@ export default function Team() {
             name: "Navjot Singh",
             role: "Full-Stack Development and Product Mangagement",
             bio: "Alex has over 10 years of experience in EdTech and a passion for making learning accessible to all children. Previously led product at Khan Academy.",
-            image: "/Image_Navjot.jpg",
+            image: "/Image_Navjot.jpeg",
             social: {
               twitter: "https://twitter.com",
               linkedin: "https://linkedin.com",
               github: "https://github.com",
-              email: "alex@qwizr.edu",
+              email: "navjot369.dev@gmail.com",
             },
           },
           {
