@@ -55,7 +55,7 @@ export default function Team() {
           },
         ]
       
-        return (<div className="min-h-screen bg-white text-gray-800">
+        return (<div className="min-h-screen bg-white text-gray-800" id="team">
       
             {/* Hero Section */}
             <section className="py-20 px-4 bg-blue-50">

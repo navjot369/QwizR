@@ -4,7 +4,7 @@ import {PenTool, BookOpen, Video, Calculator, Users, CheckCircle2, Brain, FileEd
 
 
 export default function Features() {
-    return(<section className="py-20 px-4">
+    return(<section className="py-20 px-4" id="features">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-blue-600 mb-4">
@@ -18,10 +18,10 @@ export default function Features() {
           <Tabs defaultValue="students" className="w-full">
             <div className="flex justify-center mb-8">
               <TabsList className="grid w-full max-w-md grid-cols-2 py-2 bg-white">
-                <TabsTrigger value="students" className="text-lg py-3">
+                <TabsTrigger value="students" className="text-lg py-3 text-blue-500">
                   For Students
                 </TabsTrigger>
-                <TabsTrigger value="teachers" className="text-lg py-3">
+                <TabsTrigger value="teachers" className="text-lg py-3 text-blue-500">
                   For Teachers
                 </TabsTrigger>
               </TabsList>

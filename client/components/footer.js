@@ -25,22 +25,22 @@ export function Footer() {
               <h3 className="font-bold text-lg mb-4">Product</h3>
               <ul className="space-y-2">
                 <li>
-                  <a href="#" className="text-gray-600 hover:text-blue-600">
+                  <a href="#features" className="text-gray-600 hover:text-blue-600">
                     Features
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-600 hover:text-blue-600">
-                    Pricing
+                  <a href="#team" className="text-gray-600 hover:text-blue-600">
+                    Team
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-600 hover:text-blue-600">
+                  <a href="#testimonials" className="text-gray-600 hover:text-blue-600">
                     Testimonials
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-600 hover:text-blue-600">
+                  <a href="#faq" className="text-gray-600 hover:text-blue-600">
                     FAQ
                   </a>
                 </li>
@@ -76,19 +76,19 @@ export function Footer() {
             <div>
               <h3 className="font-bold text-lg mb-4">Contact</h3>
               <ul className="space-y-2">
-                <li className="text-gray-600">hello@qwizr.edu</li>
-                <li className="text-gray-600">+1 (555) 123-4567</li>
+                <li className="text-gray-600">help.qwizr@gmail.com</li>
+                <li className="text-gray-600">+91 99988 87776</li>
                 <li className="text-gray-600">
-                  123 Education Lane
+                  Educational Lane
                   <br />
-                  Learning City, ED 12345
+                  Rajpura, Punjab 13423
                 </li>
               </ul>
             </div>
           </div>
   
           <div className="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-600 text-sm">&copy; {new Date().getFullYear()} QwizR. All rights reserved.</p>
+            <p className="text-gray-600 text-sm">&copy; 2025 QwizR. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-gray-600 hover:text-blue-600 text-sm">
                 Privacy Policy

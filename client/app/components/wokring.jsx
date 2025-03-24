@@ -1,7 +1,7 @@
 
 
 export default function Working() {
-    return(<section className="py-20 bg-blue-50 px-4">
+    return(<section className="py-20 bg-blue-50 px-4" id="how-it-works">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-blue-600 mb-4">How QwizR Works</h2>

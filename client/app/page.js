@@ -26,7 +26,7 @@ export default function LandingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white text-gray-800">
+    <div className="min-h-screen bg-white text-gray-800 scroll-smooth">
       <Header />
       <Hero />
       <Features />
@@ -38,4 +38,7 @@ export default function LandingPage() {
     </div>
   )
 }
+
+
+
 

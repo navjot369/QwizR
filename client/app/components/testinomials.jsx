@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card"
 
 
 export default function Testinomials() {
-    return(<section className="py-20 px-4">
+    return(<section className="py-20 px-4" id="testimonials">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-blue-600 mb-4">What Educators Are Saying</h2>
