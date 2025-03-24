@@ -30,11 +30,11 @@ export function Header() {
             <Link href="#how-it-works" className="text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium">
               How It Works
             </Link>
-            <Link href="#pricing" className="text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium">
-              Pricing
-            </Link>
             <Link href="#testimonials" className="text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium">
               Testimonials
+            </Link>
+            <Link href="#team" className="text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium">
+              Team
             </Link>
             <Link href="#faq" className="text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium">
               FAQ
