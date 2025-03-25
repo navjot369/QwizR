@@ -42,7 +42,7 @@ export function Header() {
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Link href="/auth/login" variant="outline" className="border-2 px-2 rounded-sm py-1 border-blue-600 text-blue-600 hover:text-white hover:bg-blue-600">
+            <Link href="/auth/login/student" variant="outline" className="border-2 px-2 rounded-sm py-1 border-blue-600 text-blue-600 hover:text-white hover:bg-blue-600">
               Log In
             </Link>
             {/*<Button className="bg-blue-600 hover:bg-blue-700 text-white">Sign Up</Button> */}
