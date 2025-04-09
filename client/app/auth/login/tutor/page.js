@@ -6,39 +6,53 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { EyeIcon, EyeOffIcon } from "lucide-react"
-// import { Header } from "./header"
-// import { Footer } from "./footer"
+import axios from "axios"
+import {toast} from "sonner";
 
 export default function LoginPage() {
-  const router = useRouter()
+  // Removed unused router variable
   const [isLoading, setIsLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
+  const [form, setForm] = useState({
+    email: "",
+    password: ""
+  })
 
-  const handleLogin = async (e) => {
-    e.preventDefault()
-    setIsLoading(true)
-
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-
-    setIsLoading(false)
-    // Redirect to dashboard after successful login
-    // router.push('/dashboard')
+  const handleChange = (e) => {
+    setForm({...form, [e.target.name] : e.target.value});
   }
 
   
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+        const res = await axios.post("http://localhost:5050/auth/login/tutor", form);
+        if(res.status == 200) {
+          toast.success("Log in Successfull");
+          localStorage.setItem("auth", res.data.token);
+          window.location.href="/tutor/dashboard";
+        }else if(res.status == 404) {
+          toast.error("Invalid Credentials");
+        }
+    } catch (error) {
+      console.log(error);
+      toast.error("Invalid Credentials");
+    } finally {
+        setIsLoading(false)
+    }
+  } 
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword)
   }
 
-  return (
-    <div className=" bg-white text-gray-800">
+  return (<div className=" bg-white text-gray-800">
 
               <Card>
                 <CardHeader className="space-y-1">
@@ -52,7 +66,7 @@ export default function LoginPage() {
                     <div className="space-y-4">
                       <div className="space-y-2">
                         <Label htmlFor="email">Email</Label>
-                        <Input id="email" type="email" placeholder="name@example.com" required />
+                        <Input id="email" name="email" type="email" placeholder="name@example.com" required value={form.email} onChange={e =>handleChange(e)} />
                       </div>
                       <div className="space-y-2">
                         <div className="flex items-center justify-between">
@@ -67,6 +81,8 @@ export default function LoginPage() {
                             type={showPassword ? "text" : "password"}
                             placeholder="••••••••"
                             required
+                            value={form.password} onChange={e =>handleChange(e)}
+                            name="password"
                           />
                           <button
                             type="button"

@@ -23,11 +23,11 @@ export default function RegistrationForm() {
 
     const [formData, setFormData] = useState({
         userType: "student",
-        firstName: "navjot",
-        lastName: "singh",
-        email: "gmailc@gmailc.om",
-        password: "Hello@123",
-        confirmPassword: "Hello@123",
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
     });
 
     // Password strength criteria
@@ -62,8 +62,10 @@ export default function RegistrationForm() {
             const res = await axios.post("http://localhost:5050/auth/register", formData);
             toast("Registered Successfully");
             
-            if(formData.userType == "student") router.replace("/auth/login/student");
-            else router.replace("/auth/login/tutor");
+            setTimeout(() => {
+                if(formData.userType == "student") router.replace("/auth/login/student");
+                else router.replace("/auth/login/tutor");
+            }, 2000);
         } catch (error) {
             toast.error("Registration failed");
         } finally {
@@ -106,7 +108,6 @@ export default function RegistrationForm() {
                                 <Input
                                     id="firstName"
                                     name="firstName"
-                                    placeholder="Navjot"
                                     value={formData.firstName}
                                     onChange={(e) => handleChange(e)}
                                     required
@@ -119,7 +120,6 @@ export default function RegistrationForm() {
                                     name="lastName"
                                     value={formData.lastName}
                                     onChange={(e) => handleChange(e)}
-                                    placeholder="Singh"
                                     required
                                 />
                             </div>
@@ -133,7 +133,6 @@ export default function RegistrationForm() {
                                 name="email"
                                 value={formData.email}
                                 onChange={(e) => handleChange(e)}
-                                placeholder="navjotsingh@qwizr.com"
                                 required
                             />
                         </div>
