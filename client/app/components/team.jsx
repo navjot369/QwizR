@@ -20,7 +20,7 @@ export default function Team() {
           },
           {
             name: "Simrandeep Singh",
-            role: "CTO",
+            role: "",
             bio: "Priya brings 8 years of software engineering experience with a focus on creating intuitive interfaces for young users. Former senior engineer at Duolingo.",
             image: "/Image_Simran.jpeg",
             social: {
@@ -32,7 +32,7 @@ export default function Team() {
           },
           {
             name: "Kheyanshu Garg",
-            role: "Head of Education",
+            role: "",
             bio: "Marcus is a former elementary school teacher with a Master's in Education. He ensures QwizR's features align with curriculum standards and teaching best practices.",
             image: "/Image_Kendo.jpeg",
             social: {
@@ -43,7 +43,7 @@ export default function Team() {
           },
           {
             name: "Keshav Soni",
-            role: "Head of Design",
+            role: "",
             bio: "Sophia specializes in UX/UI design for children. Her colorful, intuitive designs make QwizR accessible and engaging for even the youngest learners.",
             image: "/Image_Keshav.jpeg",
             social: {
@@ -86,7 +86,30 @@ export default function Team() {
                         <p className="text-sm text-gray-500 mb-3">{member.role}</p>
                         {/* <p className="text-gray-700 mb-4">{member.bio}</p> */}
                         <div className="flex space-x-3">
-                          {/* {member.social.github && (
+                          
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            </section>
+            </div>);      
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*{ {member.social.github && (
                             <a
                               href={member.social.github}
                               target="_blank"
@@ -127,13 +150,4 @@ export default function Team() {
                               <Mail size={18} />
                               <span className="sr-only">Email</span>
                             </a>
-                          )} */}
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </div>
-            </section>
-            </div>);      
-}
+)} }*/

@@ -1,6 +1,6 @@
-import mongoose, { Schema } from 'mongoose';
+import mongoose from 'mongoose';
 
-const TutorSchema = new Schema({
+const TutorSchema = new mongoose.Schema({
   firstName: {
     type: String,
     required: [true, 'First name is required'],
@@ -37,6 +37,10 @@ const TutorSchema = new Schema({
       type: Date,
       default: Date.now
     }
+  }],
+  questions: [{
+    type: mongoose.Schema.ObjectId,
+    ref: "question"
   }],
   refresh_tokens: [{
     token: {

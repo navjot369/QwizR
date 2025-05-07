@@ -18,5 +18,11 @@ app.listen(port, () => {
 });
 
 import UserRouter from "./routes/user.route.js";
+import TutorRouter from "./routes/tutor.route.js";
+import StudentRouter from "./routes/student.route.js";
+import VerifyTokenStudent from './middlewares/authStudent.js';
+import VerifyTokenTutor from './middlewares/authTutor.js';
 
 app.use("/auth", UserRouter);
+app.use("/student", VerifyTokenStudent, StudentRouter);
+app.use("/tutor", VerifyTokenTutor, TutorRouter);

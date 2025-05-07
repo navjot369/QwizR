@@ -109,13 +109,13 @@ router.post("/login/tutor", async (req, res) => {
     try {
         const tutor = await Tutor.findOne({email}).select("+password");
         if(!tutor) {
-            return res.status(404).send({message: "Invalid credentials"});
+            return res.status(404).send({message: "Invalid credentials 1"});
         }
         const isPasswordSame = await bcrypt.compare(data.password, tutor.password);
         if(!isPasswordSame) {
             return res.status(404).send({message: "Invalid credentials"});
         }
-        const token = jwt.sign({email, type: "student"}, config.jwtSecret,
+        const token = jwt.sign({email, type: "tutor"}, config.jwtSecret,
              {expiresIn: config.jwtExpiresIn});
         
         return res.status(200).send({token, message: "Log in successful"});
