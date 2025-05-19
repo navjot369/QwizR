@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Toaster } from "sonner";
-import { useState, useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
 import {
   PanelRightClose,
   PanelLeftClose,
@@ -24,9 +24,23 @@ const links = [
   { t: "Reports", l: "/student/dashboard/report", i: <ScanEye /> }
 ];
 
+const AuthContext = createContext();
+
 export default function DashboardLayout({ children }) {
+  const [token, setToken] = useState("");
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const path = usePathname();
+
+   useEffect(() => {
+            const LocalToken = localStorage.getItem("auth");
+            if (!LocalToken) {
+              window.location.href = "/";
+            } else {
+              setToken(LocalToken);
+            }
+    }, []);
+
+
 
   return (
     <div
@@ -87,7 +101,12 @@ export default function DashboardLayout({ children }) {
           )}
         </div>
       </div>
+      <AuthContext.Provider value={token}>
       <main className="p-4">{children}</main>
+      </AuthContext.Provider>
     </div>
   );
 }
+
+
+export {AuthContext};

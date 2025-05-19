@@ -46,46 +46,55 @@ const AssessmentsPage = () => {
     if (error) return <div>{error}</div>;
 
     return (
-        <div>
-            <h1 className="text-4xl text-blue-600 font-bold p-4">Assessments</h1>
-            {assessments.length === 0 ? (
-                <p>No assessments available</p>
-            ) : (
+       <div className="p-6">
+  <h1 className="text-4xl text-blue-700 font-bold mb-8 border-b pb-2">📋 Assessments</h1>
 
-                    <div className="space-y-6">
-  {assessments.map((assessment, index) => (
-    <Link
-      key={index}
-      href={`/tutor/dashboard/view/assessments/${assessment._id}`}
-    >
-      <div className="w-full border borde-2 shadow-lg p-6 rounded-xl my-4 hover:shadow-2xl">
-      <h2 className="text-2xl font-semibold text-gray-800 mb-2">{assessment.name}</h2>
-      <p className="text-gray-600"><span className="font-medium">Description:</span> {assessment.description}</p>
-      <p className="text-gray-600"><span className="font-medium">Active:</span> {assessment.is_active ? "✅ Yes" : "❌ No"}</p>
-      <p className="text-gray-600"><span className="font-medium">Start At:</span> {formatDateTime(assessment.start_at)}</p>
-      <p className="text-gray-600"><span className="font-medium">End At:</span> {formatDateTime(assessment.end_at)}</p>
-      <p className="text-gray-600"><span className="font-medium">Duration:</span> {assessment.duration} minutes</p>
+  {assessments.length === 0 ? (
+    <p className="text-gray-500 text-lg">No assessments available</p>
+  ) : (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {assessments.map((assessment, index) => (
+        <Link
+          key={index}
+          href={`/tutor/dashboard/view/assessments/${assessment._id}`}
+          className="block transition-transform transform hover:scale-[1.02]"
+        >
+          <div className="bg-white border-2 border-gray-200 shadow-md hover:shadow-xl transition-shadow rounded-2xl p-5 h-full flex flex-col justify-between">
+            <div>
+              <h2 className="text-2xl font-bold text-gray-800 mb-3">{assessment.name}</h2>
+              <p className="text-gray-600 mb-2">
+                <span className="font-semibold">📝 Description:</span> {assessment.description}
+              </p>
+              <p className="text-gray-600 mb-2">
+                <span className="font-semibold">🕒 Duration:</span> {assessment.duration} minutes
+              </p>
+              <p className="text-gray-600 mb-2">
+                <span className="font-semibold">📅 Start At:</span> {formatDateTime(assessment.start_at)}
+              </p>
+              <p className="text-gray-600 mb-4">
+                <span className="font-semibold">📅 End At:</span> {formatDateTime(assessment.end_at)}
+              </p>
+            </div>
 
-      <div className="mt-4">
-        <h3 className="text-xl font-semibold text-gray-700 mb-2">Sections</h3>
-        <ul className="space-y-3">
-          {assessment.sections.map((section, secIndex) => (
-            <li key={secIndex} className="p-4 bg-gray-50 rounded-md border border-gray-100">
-              <h4 className="text-lg font-medium text-gray-800">
-                Section {section.section_number}: {section.name}
-              </h4>
-              <p className="text-gray-600"><span className="font-medium">Duration:</span> {section.duration} minutes</p>
-              <p className="text-gray-600"><span className="font-medium">Questions:</span> {section.questions.length}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
-      </div>
-    </Link>
-  ))}
+            <div className="flex items-center justify-between">
+              <span
+                className={`text-sm font-semibold px-3 py-1 rounded-full ${
+                  assessment.is_active
+                    ? 'bg-green-100 text-green-700'
+                    : 'bg-red-100 text-red-700'
+                }`}
+              >
+                {assessment.is_active ? '✅ Active' : '❌ Inactive'}
+              </span>
+              <span className="text-sm text-blue-600 font-medium">View ➤</span>
+            </div>
+          </div>
+        </Link>
+      ))}
+    </div>
+  )}
 </div>
-            )}
-        </div>
+
     );
 };
 

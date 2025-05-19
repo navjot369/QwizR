@@ -12,15 +12,7 @@ const NewAssessmentForm = () => {
     is_active: true,
     start_at: "",
     end_at: "",
-    duration: 0,
-    sections: [
-      {
-        section_number: 1,
-        name: "",
-        duration: 0,
-        questions: [],
-      },
-    ],
+    duration: 0
   });
 
   useEffect(() => {
@@ -40,33 +32,6 @@ const NewAssessmentForm = () => {
     }));
   };
 
-  const handleSectionChange = (index, field, value) => {
-    const updatedSections = [...assessment.sections];
-    updatedSections[index][field] = value;
-    setAssessment((prev) => ({ ...prev, sections: updatedSections }));
-  };
-
-  const addSection = () => {
-    setAssessment((prev) => ({
-      ...prev,
-      sections: [
-        ...prev.sections,
-        {
-          section_number: prev.sections.length + 1,
-          name: "",
-          duration: 0,
-          questions: [],
-        },
-      ],
-    }));
-  };
-
-  const removeSection = (index) => {
-    setAssessment((prev) => ({
-      ...prev,
-      sections: prev.sections.filter((_, i) => i !== index),
-    }));
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -77,6 +42,7 @@ const NewAssessmentForm = () => {
           "Authorization" : token
         }}); 
       toast.success("Assessment created successfully!");
+      window.location.href="/tutor/dashboard/view/assessments"
       console.log(res.data);
     } catch (error) {
       console.log(error.response?.data || error.message);
@@ -158,33 +124,6 @@ const NewAssessmentForm = () => {
           className="w-full p-2 mb-4 border"
         />
       </label>
-
-      <h3 className="text-xl font-semibold">Sections</h3>
-      {assessment.sections.map((section, index) => (
-        <div key={index} className="mb-4 p-3 border rounded bg-gray-50">
-          <input
-            type="text"
-            placeholder={`Section ${index + 1} Name`}
-            value={section.name}
-            onChange={(e) => handleSectionChange(index, "name", e.target.value)}
-            className="w-full p-2 mb-2 border"
-          />
-        </div>
-      ))}
-      <button
-        type="button"
-        onClick={addSection}
-        className="px-3 py-1 bg-blue-500 text-white rounded mb-4"
-      >
-        + Add Section
-      </button>
-      <button
-        type="button"
-        onClick={() => removeSection(assessment.sections.length-1)}
-        className="px-3 py-1 bg-red-500 text-white rounded mb-4 ml-2"
-      >
-        + Remove Section
-      </button>
 
       <button
         type="submit"

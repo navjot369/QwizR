@@ -28,22 +28,9 @@ const AssessmentSchema = new mongoose.Schema({
     required: [true, 'Duration in minutes is required'],
     min: [1, 'Duration must be at least 1 minute']
   },
-  sections: [{
-    section_number: {
-      type: Number,
-      required: true
-    },
-    name: {
-      type: String,
-      default: "Section"
-    },
-    duration: {
-      type: Number
-    },
     questions: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Question'
-  }]
   }],
   created_by: {
     type: mongoose.Schema.Types.ObjectId,

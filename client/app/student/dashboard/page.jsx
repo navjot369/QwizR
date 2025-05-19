@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {
   BarChart,
   Bar,
@@ -54,6 +54,7 @@ import {
 } from "@/components/ui/chart";
 import { useEffect } from "react";
 import axios from "axios";
+import { AuthContext } from "./layout.jsx";
 
 // Sample data for charts
 const studentPerformanceData = [
@@ -118,19 +119,13 @@ const recentAssessments = [
 
 export default function TutorDashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [token, setToken] = useState();
   const [questionCount, setQuestionCount] = useState(0);
   const [assessmentCount, setAssessmentCount] = useState(0);
   const [studentCount, setStudentCount] = useState(0);
 
-  useEffect(() => {
-    const LocalToken = localStorage.getItem("auth");
-    if (!LocalToken) {
-      window.location.href = "/";
-    } else {
-      setToken(LocalToken);
-    }
-  }, []);
+  const {token} = useContext(AuthContext);
+
+  console.log(token);
 
   useEffect(() => {
     if (token == "") return;

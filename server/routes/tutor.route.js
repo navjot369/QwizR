@@ -96,6 +96,8 @@ router.get("/view/assessments", async (req, res) => {
             if (!assessment) {
                 return res.status(404).send("Assessment not found");
             }
+            const questionArr = await Question.find({ _id: { $in: assessment.questions } }).lean();
+            assessment.questionArr = questionArr;
             return res.status(200).json(assessment);
         } catch (error) {
             console.error(error);
@@ -117,9 +119,9 @@ router.get("/view/assessments", async (req, res) => {
 });
 
 router.put("/update/assessment", async (req, res) => {
-    const { assessmentId, updatedSections } = req.body;
+    const { assessmentId, updatedQuestions } = req.body;
 
-    if (!assessmentId || !updatedSections || !Array.isArray(updatedSections)) {
+    if (!assessmentId || !updatedQuestions || !Array.isArray(updatedQuestions)) {
         return res.status(400).json({ message: "Invalid request body" });
     }
 
@@ -129,17 +131,7 @@ router.put("/update/assessment", async (req, res) => {
             return res.status(404).json({ message: "Assessment not found" });
         }
 
-        // Update sections
-        updatedSections.forEach((updatedSection) => {
-            const section = assessment.sections.find(
-                (sec) => sec._id.toString() === updatedSection._id
-            );
-            if (section) {
-                section.name = updatedSection.name || section.name;
-                section.duration = updatedSection.duration || section.duration;
-                section.questions = updatedSection.questions || section.questions;
-            }
-        });
+        assessment.questions = updatedQuestions;
 
         await assessment.save();
         return res.status(200).json({ message: "Assessment updated successfully", assessment });
