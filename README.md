@@ -1,16 +1,13 @@
-<div align="center">
-  <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/navjot369/QwizR?style=for-the-badge&color=white">
-  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/navjot369/QwizR?style=for-the-badge&color=white">
-  <img alt="GitHub forks" src="https://img.shields.io/github/forks/navjot369/QwizR?style=for-the-badge&color=white">
-   <a href="https://github.com/navjot369/QwizR/graphs/commit-activity">
-  <img alt="Last commit" src="https://img.shields.io/github/last-commit/navjot369/QwizR?style=for-the-badge&color=white">
-  </a>
-</div>
-<br><br>
+
 
 **QwizR** is a specialized online examination platform designed to cater specifically to the needs of **primary school children**. It moves beyond traditional testing by providing an age-appropriate, interactive, and engaging digital assessment system. By integrating elements like an **Interactive Drawing Board**, **Picture-Based Matching**, and **Digital Whiteboard**, QwizR makes assessment a positive learning experience. For educators, the platform provides powerful **AI-Powered Question Suggestions** and **Real-Time Monitoring** capabilities, streamlining test creation and progress tracking to complement traditional teaching methods effectively.
+<div align="center">
+  <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/navjot369/QwizR?style=for-the-badge&color=black">
+  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/navjot369/QwizR?style=for-the-badge&color=black">
+  <img alt="GitHub forks" src="https://img.shields.io/github/forks/navjot369/QwizR?style=for-the-badge&color=black">
+  <img alt="Last commit" src="https://img.shields.io/github/last-commit/navjot369/QwizR?style=for-the-badge&color=black">
+</div>
 
----
 
 ## ✨ Features
 
@@ -95,14 +92,9 @@ QwizR/
 ├── README.md         # Project README file
 └── .env.example      # Example environment variables file
 ```
-QwizR/
-│
-├── server/           # Backend code (Express.js)
-├── client/           # Frontend code (React)
-├── README.md         # Project README file
-└── .env.example      # Example environment variables file
-```
 (yet to complete)
+
+<br>
 
 ## 📲 Check Responsive 📲
 
