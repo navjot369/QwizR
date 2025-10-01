@@ -1,5 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const questions = [
   {
@@ -35,15 +36,16 @@ const questions = [
 ];
 
 export default function FAQ() {
-    const [openFaq, setOpenFaq] = useState(null)
-    
-      const toggleFaq = (index) => {
-        if (openFaq === index) {
-          setOpenFaq(null)
-        } else {
-          setOpenFaq(index)
-        }
-      }
+  const [openFaq, setOpenFaq] = useState(null);
+
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
+  const faqVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  };
 
   return (
     <section className="py-20 px-4" id="faq">
@@ -57,9 +59,18 @@ export default function FAQ() {
           </p>
         </div>
 
-        <div className="space-y-4">
+        <motion.div
+          className="space-y-4"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           {questions.map((faq, index) => (
-            <div key={index} className="border rounded-lg overflow-hidden">
+            <motion.div
+              key={index}
+              className="border rounded-lg overflow-hidden"
+              variants={faqVariants}
+            >
               <button
                 className="flex justify-between items-center w-full p-4 text-left font-medium focus:outline-none"
                 onClick={() => toggleFaq(index)}
@@ -71,14 +82,23 @@ export default function FAQ() {
                   }`}
                 />
               </button>
-              {openFaq === index && (
-                <div className="p-4 bg-gray-50 border-t">
-                  <p className="text-gray-600">{faq.answer}</p>
-                </div>
-              )}
-            </div>
+              <AnimatePresence initial={false}>
+                {openFaq === index && (
+                  <motion.div
+                    key="content"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    className="p-4 bg-gray-50 border-t"
+                  >
+                    <p className="text-gray-600">{faq.answer}</p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

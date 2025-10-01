@@ -1,34 +1,58 @@
-import {Tabs, TabsList, TabsTrigger, TabsContent} from "@/components/ui/tabs";
-import {Card, CardContent} from "@/components/ui/card";
-import {PenTool, BookOpen, Video, Calculator, Users, CheckCircle2, Brain, FileEdit, LayoutTemplate, Settings, LineChart} from "lucide-react";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Card, CardContent } from "@/components/ui/card";
+import { PenTool, BookOpen, Video, Calculator, Users, CheckCircle2, Brain, FileEdit, LayoutTemplate, Settings, LineChart } from "lucide-react";
+import { motion } from "framer-motion";
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15, // delay between cards
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 
 export default function Features() {
-    return(<section className="py-20 px-4" id="features">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-blue-600 mb-4">
-              Designed for Both Students and Teachers
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              QwizR offers specialized features for young learners and powerful tools for educators.
-            </p>
+  return (
+    <section className="py-20 px-4" id="features">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-blue-600 mb-4">
+            Designed for Both Students and Teachers
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            QwizR offers specialized features for young learners and powerful tools for educators.
+          </p>
+        </div>
+
+        <Tabs defaultValue="students" className="w-full">
+          <div className="flex justify-center mb-8">
+            <TabsList className="grid w-full max-w-md grid-cols-2 py-2 bg-white">
+              <TabsTrigger value="students" className="text-lg py-3 text-blue-500">
+                For Students
+              </TabsTrigger>
+              <TabsTrigger value="teachers" className="text-lg py-3 text-blue-500">
+                For Teachers
+              </TabsTrigger>
+            </TabsList>
           </div>
 
-          <Tabs defaultValue="students" className="w-full">
-            <div className="flex justify-center mb-8">
-              <TabsList className="grid w-full max-w-md grid-cols-2 py-2 bg-white">
-                <TabsTrigger value="students" className="text-lg py-3 text-blue-500">
-                  For Students
-                </TabsTrigger>
-                <TabsTrigger value="teachers" className="text-lg py-3 text-blue-500">
-                  For Teachers
-                </TabsTrigger>
-              </TabsList>
-            </div>
-
-            <TabsContent value="students">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Students Tab */}
+          <TabsContent value="students">
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-3 gap-8"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }} // animate when 30% visible, only once
+            >
+              {/* Card 1 */}
+              <motion.div variants={cardVariants}>
                 <Card>
                   <CardContent className="pt-6">
                     <div className="bg-blue-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
@@ -40,7 +64,10 @@ export default function Features() {
                     </p>
                   </CardContent>
                 </Card>
+              </motion.div>
 
+              {/* Card 2 */}
+              <motion.div variants={cardVariants}>
                 <Card>
                   <CardContent className="pt-6">
                     <div className="bg-green-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
@@ -52,7 +79,10 @@ export default function Features() {
                     </p>
                   </CardContent>
                 </Card>
+              </motion.div>
 
+              {/* Card 3 */}
+              <motion.div variants={cardVariants}>
                 <Card>
                   <CardContent className="pt-6">
                     <div className="bg-purple-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
@@ -64,7 +94,10 @@ export default function Features() {
                     </p>
                   </CardContent>
                 </Card>
+              </motion.div>
 
+              {/* Card 4 */}
+              <motion.div variants={cardVariants}>
                 <Card>
                   <CardContent className="pt-6">
                     <div className="bg-yellow-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
@@ -76,7 +109,10 @@ export default function Features() {
                     </p>
                   </CardContent>
                 </Card>
+              </motion.div>
 
+              {/* Card 5 */}
+              <motion.div variants={cardVariants}>
                 <Card>
                   <CardContent className="pt-6">
                     <div className="bg-red-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
@@ -88,7 +124,10 @@ export default function Features() {
                     </p>
                   </CardContent>
                 </Card>
+              </motion.div>
 
+              {/* Card 6 */}
+              <motion.div variants={cardVariants}>
                 <Card>
                   <CardContent className="pt-6">
                     <div className="bg-orange-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
@@ -100,11 +139,21 @@ export default function Features() {
                     </p>
                   </CardContent>
                 </Card>
-              </div>
-            </TabsContent>
+              </motion.div>
+            </motion.div>
+          </TabsContent>
 
-            <TabsContent value="teachers">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Teachers Tab */}
+          <TabsContent value="teachers">
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-3 gap-8"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              {/* Card 1 */}
+              <motion.div variants={cardVariants}>
                 <Card>
                   <CardContent className="pt-6">
                     <div className="bg-indigo-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
@@ -116,7 +165,10 @@ export default function Features() {
                     </p>
                   </CardContent>
                 </Card>
+              </motion.div>
 
+              {/* Card 2 */}
+              <motion.div variants={cardVariants}>
                 <Card>
                   <CardContent className="pt-6">
                     <div className="bg-teal-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
@@ -128,7 +180,10 @@ export default function Features() {
                     </p>
                   </CardContent>
                 </Card>
+              </motion.div>
 
+              {/* Card 3 */}
+              <motion.div variants={cardVariants}>
                 <Card>
                   <CardContent className="pt-6">
                     <div className="bg-pink-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
@@ -140,7 +195,10 @@ export default function Features() {
                     </p>
                   </CardContent>
                 </Card>
+              </motion.div>
 
+              {/* Card 4 */}
+              <motion.div variants={cardVariants}>
                 <Card>
                   <CardContent className="pt-6">
                     <div className="bg-cyan-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
@@ -152,7 +210,10 @@ export default function Features() {
                     </p>
                   </CardContent>
                 </Card>
+              </motion.div>
 
+              {/* Card 5 */}
+              <motion.div variants={cardVariants}>
                 <Card>
                   <CardContent className="pt-6">
                     <div className="bg-amber-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
@@ -164,7 +225,10 @@ export default function Features() {
                     </p>
                   </CardContent>
                 </Card>
+              </motion.div>
 
+              {/* Card 6 */}
+              <motion.div variants={cardVariants}>
                 <Card>
                   <CardContent className="pt-6">
                     <div className="bg-lime-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
@@ -176,9 +240,11 @@ export default function Features() {
                     </p>
                   </CardContent>
                 </Card>
-              </div>
-            </TabsContent>
-          </Tabs>
-        </div>
-      </section>);
+              </motion.div>
+            </motion.div>
+          </TabsContent>
+        </Tabs>
+      </div>
+    </section>
+  );
 }
