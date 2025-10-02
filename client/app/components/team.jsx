@@ -7,7 +7,7 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.15, // stagger cards
+      staggerChildren: 0.15,
     },
   },
 };
@@ -69,12 +69,12 @@ export default function Team() {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-gray-800" id="team">
-      <section className="py-20 px-4 bg-blue-50">
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100" id="team">
+      <section className="py-20 px-4 bg-blue-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-blue-600 mb-4">Meet Our Team</h1>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold text-blue-600 dark:text-blue-400 mb-4">Meet Our Team</h1>
+            <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
               The passionate educators and technologists behind QwizR who are dedicated to transforming digital assessment for young learners.
             </p>
           </div>
@@ -88,8 +88,8 @@ export default function Team() {
           >
             {teamMembers.map((member, index) => (
               <motion.div key={index} variants={cardVariants}>
-                <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg p-2">
-                  <div className="aspect-square overflow-hidden bg-gray-100">
+                <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg p-2 bg-white dark:bg-gray-900">
+                  <div className="aspect-square overflow-hidden bg-gray-100 dark:bg-gray-800">
                     <Image
                       src={member.image}
                       alt={member.name}
@@ -99,11 +99,9 @@ export default function Team() {
                     />
                   </div>
                   <CardContent className="p-3">
-                    <h3 className="text-xl font-bold text-blue-600 mb-1">{member.name}</h3>
-                    <p className="text-sm text-gray-500 mb-3">{member.role}</p>
-                    {/* <p className="text-gray-700 mb-4">{member.bio}</p> */}
+                    <h3 className="text-xl font-bold text-blue-600 dark:text-blue-400 mb-1">{member.name}</h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">{member.role}</p>
                     <div className="flex space-x-3">
-                      {/* Social links can go here */}
                     </div>
                   </CardContent>
                 </Card>
