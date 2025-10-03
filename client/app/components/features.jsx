@@ -7,7 +7,7 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.15, // delay between cards
+      staggerChildren: 0.15,
     },
   },
 };
@@ -19,20 +19,20 @@ const cardVariants = {
 
 export default function Features() {
   return (
-    <section className="py-20 px-4" id="features">
+    <section className="py-20 px-4 bg-white dark:bg-gray-900" id="features">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-600 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400 mb-4">
             Designed for Both Students and Teachers
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             QwizR offers specialized features for young learners and powerful tools for educators.
           </p>
         </div>
 
         <Tabs defaultValue="students" className="w-full">
           <div className="flex justify-center mb-8">
-            <TabsList className="grid w-full max-w-md grid-cols-2 py-2 bg-white">
+            <TabsList className="grid w-full max-w-md grid-cols-2 py-2 bg-gray-100 dark:bg-gray-800">
               <TabsTrigger value="students" className="text-lg py-3 text-blue-500">
                 For Students
               </TabsTrigger>
@@ -49,17 +49,17 @@ export default function Features() {
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }} // animate when 30% visible, only once
+              viewport={{ once: true, amount: 0.3 }}
             >
               {/* Card 1 */}
               <motion.div variants={cardVariants}>
-                <Card>
+                <Card className="bg-white dark:bg-gray-800">
                   <CardContent className="pt-6">
-                    <div className="bg-blue-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                      <PenTool className="w-8 h-8 text-blue-600" />
+                    <div className="bg-blue-100 dark:bg-blue-900/50 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+                      <PenTool className="w-8 h-8 text-blue-600 dark:text-blue-400" />
                     </div>
-                    <h3 className="text-xl font-bold mb-2">Interactive Drawing Board</h3>
-                    <p className="text-gray-600">
+                    <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-100">Interactive Drawing Board</h3>
+                    <p className="text-gray-600 dark:text-gray-300">
                       Practice alphabet writing and drawing with our digital canvas designed for young learners.
                     </p>
                   </CardContent>
@@ -68,13 +68,13 @@ export default function Features() {
 
               {/* Card 2 */}
               <motion.div variants={cardVariants}>
-                <Card>
+                <Card className="bg-white dark:bg-gray-800">
                   <CardContent className="pt-6">
-                    <div className="bg-green-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                      <BookOpen className="w-8 h-8 text-green-600" />
+                    <div className="bg-green-100 dark:bg-green-900/50 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+                      <BookOpen className="w-8 h-8 text-green-600 dark:text-green-400" />
                     </div>
-                    <h3 className="text-xl font-bold mb-2">Picture-Based Matching</h3>
-                    <p className="text-gray-600">
+                    <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-100">Picture-Based Matching</h3>
+                    <p className="text-gray-600 dark:text-gray-300">
                       Visual-enhanced assessments that make learning engaging and fun for primary students.
                     </p>
                   </CardContent>
@@ -83,13 +83,13 @@ export default function Features() {
 
               {/* Card 3 */}
               <motion.div variants={cardVariants}>
-                <Card>
+                <Card className="bg-white dark:bg-gray-800">
                   <CardContent className="pt-6">
-                    <div className="bg-purple-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                      <Video className="w-8 h-8 text-purple-600" />
+                    <div className="bg-purple-100 dark:bg-purple-900/50 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+                      <Video className="w-8 h-8 text-purple-600 dark:text-purple-400" />
                     </div>
-                    <h3 className="text-xl font-bold mb-2">Video-Assisted Questions</h3>
-                    <p className="text-gray-600">
+                    <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-100">Video-Assisted Questions</h3>
+                    <p className="text-gray-600 dark:text-gray-300">
                       Multimedia content that aids comprehension and keeps young learners engaged.
                     </p>
                   </CardContent>
@@ -98,13 +98,13 @@ export default function Features() {
 
               {/* Card 4 */}
               <motion.div variants={cardVariants}>
-                <Card>
+                <Card className="bg-white dark:bg-gray-800">
                   <CardContent className="pt-6">
-                    <div className="bg-yellow-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                      <Calculator className="w-8 h-8 text-yellow-600" />
+                    <div className="bg-yellow-100 dark:bg-yellow-900/50 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+                      <Calculator className="w-8 h-8 text-yellow-600 dark:text-yellow-400" />
                     </div>
-                    <h3 className="text-xl font-bold mb-2">Digital Whiteboard</h3>
-                    <p className="text-gray-600">
+                    <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-100">Digital Whiteboard</h3>
+                    <p className="text-gray-600 dark:text-gray-300">
                       Solve mathematical problems step-by-step with our intuitive digital whiteboard.
                     </p>
                   </CardContent>
@@ -113,13 +113,13 @@ export default function Features() {
 
               {/* Card 5 */}
               <motion.div variants={cardVariants}>
-                <Card>
+                <Card className="bg-white dark:bg-gray-800">
                   <CardContent className="pt-6">
-                    <div className="bg-red-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                      <Users className="w-8 h-8 text-red-600" />
+                    <div className="bg-red-100 dark:bg-red-900/50 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+                      <Users className="w-8 h-8 text-red-600 dark:text-red-400" />
                     </div>
-                    <h3 className="text-xl font-bold mb-2">Intuitive Interface</h3>
-                    <p className="text-gray-600">
+                    <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-100">Intuitive Interface</h3>
+                    <p className="text-gray-600 dark:text-gray-300">
                       Child-friendly design that&apos;s simple to navigate for even the youngest students.
                     </p>
                   </CardContent>
@@ -128,13 +128,13 @@ export default function Features() {
 
               {/* Card 6 */}
               <motion.div variants={cardVariants}>
-                <Card>
+                <Card className="bg-white dark:bg-gray-800">
                   <CardContent className="pt-6">
-                    <div className="bg-orange-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                      <CheckCircle2 className="w-8 h-8 text-orange-600" />
+                    <div className="bg-orange-100 dark:bg-orange-900/50 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+                      <CheckCircle2 className="w-8 h-8 text-orange-600 dark:text-orange-400" />
                     </div>
-                    <h3 className="text-xl font-bold mb-2">Encouraging Feedback</h3>
-                    <p className="text-gray-600">
+                    <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-100">Encouraging Feedback</h3>
+                    <p className="text-gray-600 dark:text-gray-300">
                       Immediate and positive feedback system that motivates children to keep learning.
                     </p>
                   </CardContent>
@@ -154,13 +154,13 @@ export default function Features() {
             >
               {/* Card 1 */}
               <motion.div variants={cardVariants}>
-                <Card>
+                <Card className="bg-white dark:bg-gray-800">
                   <CardContent className="pt-6">
-                    <div className="bg-indigo-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                      <Brain className="w-8 h-8 text-indigo-600" />
+                    <div className="bg-indigo-100 dark:bg-indigo-900/50 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+                      <Brain className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />
                     </div>
-                    <h3 className="text-xl font-bold mb-2">AI-Powered Question Suggestions</h3>
-                    <p className="text-gray-600">
+                    <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-100">AI-Powered Question Suggestions</h3>
+                    <p className="text-gray-600 dark:text-gray-300">
                       Generate age-appropriate questions with our AI system to save time and enhance creativity.
                     </p>
                   </CardContent>
@@ -169,13 +169,13 @@ export default function Features() {
 
               {/* Card 2 */}
               <motion.div variants={cardVariants}>
-                <Card>
+                <Card className="bg-white dark:bg-gray-800">
                   <CardContent className="pt-6">
-                    <div className="bg-teal-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                      <FileEdit className="w-8 h-8 text-teal-600" />
+                    <div className="bg-teal-100 dark:bg-teal-900/50 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+                      <FileEdit className="w-8 h-8 text-teal-600 dark:text-teal-400" />
                     </div>
-                    <h3 className="text-xl font-bold mb-2">Easy Test Creation</h3>
-                    <p className="text-gray-600">
+                    <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-100">Easy Test Creation</h3>
+                    <p className="text-gray-600 dark:text-gray-300">
                       Intuitive interface that makes designing assessments quick and simple for busy educators.
                     </p>
                   </CardContent>
@@ -184,13 +184,13 @@ export default function Features() {
 
               {/* Card 3 */}
               <motion.div variants={cardVariants}>
-                <Card>
+                <Card className="bg-white dark:bg-gray-800">
                   <CardContent className="pt-6">
-                    <div className="bg-pink-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                      <LayoutTemplate className="w-8 h-8 text-pink-600" />
+                    <div className="bg-pink-100 dark:bg-pink-900/50 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+                      <LayoutTemplate className="w-8 h-8 text-pink-600 dark:text-pink-400" />
                     </div>
-                    <h3 className="text-xl font-bold mb-2">Multiple Question Formats</h3>
-                    <p className="text-gray-600">
+                    <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-100">Multiple Question Formats</h3>
+                    <p className="text-gray-600 dark:text-gray-300">
                       Choose from diverse assessment templates to match different learning objectives.
                     </p>
                   </CardContent>
@@ -199,13 +199,13 @@ export default function Features() {
 
               {/* Card 4 */}
               <motion.div variants={cardVariants}>
-                <Card>
+                <Card className="bg-white dark:bg-gray-800">
                   <CardContent className="pt-6">
-                    <div className="bg-cyan-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                      <Settings className="w-8 h-8 text-cyan-600" />
+                    <div className="bg-cyan-100 dark:bg-cyan-900/50 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+                      <Settings className="w-8 h-8 text-cyan-600 dark:text-cyan-400" />
                     </div>
-                    <h3 className="text-xl font-bold mb-2">Assessment Customization</h3>
-                    <p className="text-gray-600">
+                    <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-100">Assessment Customization</h3>
+                    <p className="text-gray-600 dark:text-gray-300">
                       Tailor tests to specific needs, learning styles, and curriculum requirements.
                     </p>
                   </CardContent>
@@ -214,13 +214,13 @@ export default function Features() {
 
               {/* Card 5 */}
               <motion.div variants={cardVariants}>
-                <Card>
+                <Card className="bg-white dark:bg-gray-800">
                   <CardContent className="pt-6">
-                    <div className="bg-amber-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                      <LineChart className="w-8 h-8 text-amber-600" />
+                    <div className="bg-amber-100 dark:bg-amber-900/50 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+                      <LineChart className="w-8 h-8 text-amber-600 dark:text-amber-400" />
                     </div>
-                    <h3 className="text-xl font-bold mb-2">Real-Time Monitoring</h3>
-                    <p className="text-gray-600">
+                    <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-100">Real-Time Monitoring</h3>
+                    <p className="text-gray-600 dark:text-gray-300">
                       Track student progress efficiently with comprehensive analytics and reporting.
                     </p>
                   </CardContent>
@@ -229,13 +229,13 @@ export default function Features() {
 
               {/* Card 6 */}
               <motion.div variants={cardVariants}>
-                <Card>
+                <Card className="bg-white dark:bg-gray-800">
                   <CardContent className="pt-6">
-                    <div className="bg-lime-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                      <Users className="w-8 h-8 text-lime-600" />
+                    <div className="bg-lime-100 dark:bg-lime-900/50 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+                      <Users className="w-8 h-8 text-lime-600 dark:text-lime-400" />
                     </div>
-                    <h3 className="text-xl font-bold mb-2">Collaborative Tools</h3>
-                    <p className="text-gray-600">
+                    <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-100">Collaborative Tools</h3>
+                    <p className="text-gray-600 dark:text-gray-300">
                       Share assessments and results with parents and colleagues to improve learning outcomes.
                     </p>
                   </CardContent>

@@ -48,13 +48,13 @@ export default function FAQ() {
   };
 
   return (
-    <section className="py-20 px-4" id="faq">
+    <section className="py-20 px-4 bg-white dark:bg-gray-900" id="faq">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-600 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400 mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-gray-600 dark:text-gray-300">
             Find answers to common questions about QwizR.
           </p>
         </div>
@@ -68,11 +68,11 @@ export default function FAQ() {
           {questions.map((faq, index) => (
             <motion.div
               key={index}
-              className="border rounded-lg overflow-hidden"
+              className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden"
               variants={faqVariants}
             >
               <button
-                className="flex justify-between items-center w-full p-4 text-left font-medium focus:outline-none"
+                className="flex justify-between items-center w-full p-4 text-left font-medium text-gray-800 dark:text-gray-100 focus:outline-none"
                 onClick={() => toggleFaq(index)}
               >
                 {faq.question}
@@ -90,9 +90,9 @@ export default function FAQ() {
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.4, ease: "easeOut" }}
-                    className="p-4 bg-gray-50 border-t"
+                    className="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700"
                   >
-                    <p className="text-gray-600">{faq.answer}</p>
+                    <p className="text-gray-600 dark:text-gray-300">{faq.answer}</p>
                   </motion.div>
                 )}
               </AnimatePresence>
